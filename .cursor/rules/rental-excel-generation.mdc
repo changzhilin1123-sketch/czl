@@ -1,0 +1,35 @@
+---
+description: 直播设备租赁对比表 Excel 生成与更新规范
+globs: 直播设备/generate_rental*.py,直播设备/**/*.xlsx
+alwaysApply: false
+---
+
+# 租赁对比 Excel 规范
+
+文件位于 **`直播设备/`** 目录。
+
+## 工作表结构（保持一致）
+
+1. 总览  2. 相机与采集  3. 灯光与配件  4. 推流电脑
+5. 服务支持  6. 3个月费用排序  7. 场景匹配建议  8. 各家优缺点
+
+无价格版：删除所有月租/合计列，保留配置与服务对比。
+
+## 更新流程
+
+1. 先改 `直播设备/generate_rental*.py`，再运行脚本
+2. 新报价须标注：原价 / 折后 / 是否推算 / 待确认
+3. 「含电脑全套」与「仅拍摄端」分列
+
+## 脚本命令
+
+```bash
+cd 直播设备
+pip install openpyxl
+python generate_rental_comparison.py
+python generate_rental_comparison_no_price.py
+```
+
+若 xlsx 被 Excel 占用，改用带 `_v2` 等后缀输出。
+
+更新后同步 `直播设备/设备租赁上下文.md` 与 `项目上下文.md` 变更日志。
