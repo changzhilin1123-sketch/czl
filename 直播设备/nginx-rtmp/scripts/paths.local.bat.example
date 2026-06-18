@@ -1,0 +1,4 @@
+@echo off
+rem 复制本文件为 paths.local.bat（与 _paths.bat 同目录），可指定本机已有 nginx 目录
+rem 不创建 paths.local.bat 时，默认使用 ..\runtime\
+set "ROOT=D:\tools\nginx-rtmp"
